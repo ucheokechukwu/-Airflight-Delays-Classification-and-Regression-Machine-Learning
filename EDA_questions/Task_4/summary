@@ -1,0 +1,5 @@
+Task 4.ipynb - please note that there are 2 ways of getting df_sample. One way extracts it from the full flights.csv file and the other way extracts it from flights_sample.csv
+
+hour_taxi_traffic.py - a function that takes a flights sample (or the full dataset!) and returns a dataframe of hours, average traffic per hour and average taxitime per hour
+
+output - stores the dataframe described above
