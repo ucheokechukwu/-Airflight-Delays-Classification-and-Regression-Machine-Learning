@@ -37,8 +37,8 @@ def passenger_fuel_df(fuel_df,passenger_df,flight_df):
     qtendf['passengers'] = qtendf['passengers']/24
     qtendf['total_gallons'] = qtendf['passengers']/24
     
-    #replace null gallons with average
-    qtendf['total_gallons'] = qtendf['total_gallons'].where(qtendf['total_gallons']>0,avg_gallon)
+    #replace null gallons with median
+    qtendf['total_gallons'] = qtendf['total_gallons'].where(qtendf['total_gallons']>0,median_gallon)
     
     #calculate average distance per passenger
     qtendf['monthly_distance_per_passenger'] = (qtendf['passengers']/qtendf['distance'])
