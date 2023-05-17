@@ -1,7 +1,7 @@
 def hour_taxi_traffic(df):
     """
     Input: flights df, whole or sample
-        should have the following columns ['tail_num',
+        should have the following columns ['fl_date',
            'arr_delay',
            'crs_arr_time',
            'arr_time',
