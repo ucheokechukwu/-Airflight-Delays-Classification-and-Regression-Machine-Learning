@@ -8,6 +8,8 @@ def daily_arrival_and_departure(flightsdf):
     import pandas as pd
     import numpy as np
     
+    flightsdf = flightsdf[['fl_date','origin','dest']]
+    
     num_departures = flightsdf.groupby(by=['fl_date','origin']).count().rename(columns={'dest':'num_flights_leaving'})
     num_arrivals = flightsdf.groupby(by=['fl_date','dest']).count().rename(columns={'origin':'num_flights_arriving'})
     
