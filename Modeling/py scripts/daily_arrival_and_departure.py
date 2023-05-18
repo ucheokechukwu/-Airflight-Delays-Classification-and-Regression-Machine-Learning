@@ -14,4 +14,4 @@ def daily_arrival_and_departure(flightsdf):
     num_arrivals = flightsdf.groupby(by=['fl_date','dest']).count().rename(columns={'origin':'num_flights_arriving'})
     
     num_departures.to_csv('data/num_departures_daily.csv')
-    num_arrivals.to_cwv('data/num_arrivals_daily.csv')
+    num_arrivals.to_csv('data/num_arrivals_daily.csv')
