@@ -7,7 +7,7 @@ The goal is to predict delays in the arrival of commercial flights, to predict i
 
 ## Process
 
-![Process](Images/Process.png)
+![Process](Images/process.png)
 
 |Process |   Folder/Notebook |
 |:-|:-|
