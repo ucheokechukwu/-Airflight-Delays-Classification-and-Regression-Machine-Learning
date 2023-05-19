@@ -27,7 +27,7 @@ SECONDARY OBJECTIVES (Classification):
 
 ## Results
 
-![FM](Images/FM.png)
+![FM](Images/FM.PNG)
 
 ![BCM](Images/BCM.PNG)
 
