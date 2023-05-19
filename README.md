@@ -29,9 +29,9 @@ SECONDARY OBJECTIVES (Classification):
 
 ![FM](Images/FM.png)
 
-![BCM](Images/BCM.png)
+![BCM](Images/BCM.PNG)
 
-![MCM](Images/MCM.png)
+![MCM](Images/MCM.PNG)
 
 ## Limitations
 
