@@ -1,20 +1,20 @@
 # Mid-Term Project
 
 
-## Goal:
+# Goal:
 
-PRIMARY OBJECTIVE (Regression):
+### PRIMARY OBJECTIVE (Regression):
 
 - Predict flight delays using only information available 1 week before the flight
 
-SECONDARY OBJECTIVES (Classification):
+### SECONDARY OBJECTIVES (Classification):
 
 - Predict what type of delay it will be given a plane is delayed
 
 - Predict whether a flight will be cancelled or not
 
 
-## Process
+# Process
 
 ![Process](Images/process.png)
 
@@ -25,7 +25,7 @@ SECONDARY OBJECTIVES (Classification):
 |Modeling |***Modeling\Modeling_DecisionTree_Classifier.ipynb ...***|
 
 
-## Results
+# Results
 
 ![FM](Images/FM.PNG)
 
@@ -33,12 +33,25 @@ SECONDARY OBJECTIVES (Classification):
 
 ![MCM](Images/MCM.PNG)
 
-## Limitations
+## Observations
+
+- Time is a factor in delays, the later in the day the more delay (more capacity to be delayed by other flights
+
+- Longer flights were less likely to be delayed than shorter ones
+
+- Instances where one carrier ran the flight under another carriers name (op_carrier != mkt_carrier) were more likely to be delayed
+
+- Certain airports and airlines were more / less likely to have delays. Generally the busier the more delays
+
+
+# Limitations
 
 Predicting a week in advance limits predictive power of the model 
 - A weather forecast isn’t as accurate a week out compared to a day out
 
 - Much of what causes an aircraft to be late is dependent on last minute factors (crew, other planes, etc.)
+
+Data leakage on some average variables (included training set; to be addressed)
 
 Data doesn’t include passenger or crew information on a flight by flight basis
 
@@ -49,7 +62,7 @@ High class imbalance for classification (e.g. low number of cancellations)
 Unable to use whole dataset due to machine limitations
 
 
-## Future Work
+# Future Work
 
 - Move prediction date closer to target date (e.g. 1 day in advance)
 
