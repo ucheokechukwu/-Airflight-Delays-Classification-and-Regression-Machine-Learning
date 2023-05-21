@@ -1,5 +1,3 @@
-### All scripts should be run on flights dataset (full or sample) after preprocessing_dataset function.
-
 def tailnum_delay_taxi_multiclass_params(df_sample):
     """
     Input: flights csv sample or full dataset AFTER preprocessing_dataset
@@ -169,7 +167,7 @@ def holiday_multiclass_params(df_sample):
         
 ########################################
 ##  run this if holidays is not available. check the file location first
-    us_holidays_df = pd.read_csv('extra/us_holidays.csv')
+    us_holidays_df = pd.read_csv('../extra/us_holidays.csv')
 
     from datetime import timedelta
     holidays = []

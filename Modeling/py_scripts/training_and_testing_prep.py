@@ -1,92 +1,96 @@
 def preparing_training_df(train_df):
-        """Input: dataset after preprocessing
-        check extras for  holidays csv
-        Output: 3 datasets: X and y
-        """
-    
-        ######################################################
-        # getting the list of US national holidays
-        # run this if 'holidays' is not available. check the file location first
-        us_holidays_df = pd.read_csv('extra/us_holidays.csv')
+    """Input: dataset after preprocessing
+    check extras for  holidays csv
+    Output: 2 datasets: X and y
+    """
 
-        from datetime import timedelta
-        holidays = []
-        for hol in us_holidays_df['date'].values:
-            holstart = pd.to_datetime(hol) - timedelta(days=5)
-            holend = pd.to_datetime(hol) + timedelta(days=3)
-            holidayweek = pd.date_range(holstart, holend)
-            holidays.extend(holidayweek)
-        #######################################################          
-    
-    
-        # EDA: column transformations to integrate with the preprocessed feature tables:
-        # binarize branded share
-        train_df['branded_share'] = train_df['branded_code_share'].apply(lambda x: 1 if len(x)>2 else 0)
-        # extract month and day of week and holidate
-        train_df['fl_date'] = pd.to_datetime(train_df['fl_date'])
-        train_df['fl_month'] = train_df['fl_date'].dt.month
-        train_df['fl_dayofweek'] = train_df['fl_date'].dt.dayofweek
-        train_df['fl_date'] = pd.to_datetime(train_df['fl_date'])
-        train_df['holidate'] = train_df['fl_date'].apply(lambda x: 1 if x in holidays else 0)
-    
-        # extract flight hour
-        train_df['dep_hour'] = (np.round(train_df['crs_dep_time'],-2)/100).astype(int)
-        train_df['arr_hour'] = (np.round(train_df['crs_arr_time'],-2)/100).astype(int)
+    ######################################################
+    # getting the list of US national holidays
+    # run this if 'holidays' is not available. check the file location first
+    try:
+        us_holidays_df = pd.read_csv('../extra/us_holidays.csv')
+    except:
+        filname = input('File location for us_holidays_df')
+        us_holidays_df = pd.read_csv(filname)
 
-        # drop irrelevant columns  
-        train_df.drop(columns = ['mkt_unique_carrier', 'mkt_carrier',
-                             'mkt_carrier_fl_num',
-                             'op_carrier_fl_num',
-                             'origin', 'origin_city_name'],
-                             inplace=True)
-                             
-        train_df.drop(columns = ['dest', 'dest_city_name',
-                             'crs_elapsed_time',
-                             'flights',
-                             'fl_date',
-                             'crs_dep_time', 'crs_arr_time',
-                             'branded_code_share'],
+    from datetime import timedelta
+    holidays = []
+    for hol in us_holidays_df['date'].values:
+        holstart = pd.to_datetime(hol) - timedelta(days=5)
+        holend = pd.to_datetime(hol) + timedelta(days=3)
+        holidayweek = pd.date_range(holstart, holend)
+        holidays.extend(holidayweek)
+    #######################################################          
+
+
+    # EDA: column transformations to integrate with the preprocessed feature tables:
+    # binarize branded share
+    train_df['branded_share'] = train_df['branded_code_share'].apply(lambda x: 1 if len(x)>2 else 0)
+    # extract month and day of week and holidate
+    train_df['fl_date'] = pd.to_datetime(train_df['fl_date'])
+    train_df['fl_month'] = train_df['fl_date'].dt.month
+    train_df['fl_dayofweek'] = train_df['fl_date'].dt.dayofweek
+    train_df['fl_date'] = pd.to_datetime(train_df['fl_date'])
+    train_df['holidate'] = train_df['fl_date'].apply(lambda x: 1 if x in holidays else 0)
+
+    # extract flight hour
+    train_df['dep_hour'] = (np.round(train_df['crs_dep_time'],-2)/100).astype(int)
+    train_df['arr_hour'] = (np.round(train_df['crs_arr_time'],-2)/100).astype(int)
+
+    # drop irrelevant columns  
+    train_df.drop(columns = ['mkt_unique_carrier', 'mkt_carrier',
+                         'mkt_carrier_fl_num',
+                         'op_carrier_fl_num',
+                         'origin', 'origin_city_name'],
+                         inplace=True)
+
+    train_df.drop(columns = ['dest', 'dest_city_name',
+                         'crs_elapsed_time',
+                         'flights',
+                         'fl_date',
+                         'crs_dep_time', 'crs_arr_time',
+                         'branded_code_share'],
+                          inplace=True)
+
+    delay_cols = ['carrier_delay', 'weather_delay',
+                   'nas_delay', 'security_delay', 'late_aircraft_delay'] 
+
+#     # defining the target (y) labels
+#     df['target'] = df[delay_cols].idxmax(axis=1) # returns maximum delay
+
+    # remove delays from dataset
+    train_df.drop(columns=delay_cols, inplace=True)
+
+    train_df.drop(columns = ['dep_time',
+                       'dep_delay', 'taxi_out', 'taxi_in', 'arr_time',
+                       'arr_delay', 'cancelled','actual_elapsed_time',
+                       'air_time', 'isDelay'],
                               inplace=True)
-    
-        delay_cols = ['carrier_delay', 'weather_delay',
-                       'nas_delay', 'security_delay', 'late_aircraft_delay'] 
-        
-    #     # defining the target (y) labels
-    #     df['target'] = df[delay_cols].idxmax(axis=1) # returns maximum delay
-    
-        # remove delays from dataset
-        train_df.drop(columns=delay_cols, inplace=True)
-    
-        train_df.drop(columns = ['dep_time',
-                           'dep_delay', 'taxi_out', 'taxi_in', 'arr_time',
-                           'arr_delay', 'cancelled','actual_elapsed_time',
-                           'air_time', 'isDelay'],
-                                  inplace=True)
  
     ################# calling features tables
     
     # merging the testing dataset with the features tables of aggregate values
     # thereby converting categorical and ordinal columns to continuous values
     tmp = train_df
-    train_df = tmp.merge(tmp2, 
+    train_df = tmp.merge(features_2, 
                   left_on=['tail_num'], 
-                  right_on=['tail_num'], how='left').merge(tmp3,
+                  right_on=['tail_num'], how='left').merge(features_3,
                   left_on=['tail_num','dep_hour'],
-                  right_on=['tail_num','dep_hour']).merge(tmp4,
+                  right_on=['tail_num','dep_hour']).merge(features_4,
                   left_on=['tail_num','arr_hour'],
-                  right_on=['tail_num','arr_hour']).merge(tmp5,
+                  right_on=['tail_num','arr_hour']).merge(features_5,
                   left_on=['op_unique_carrier', 'branded_share', 'fl_dayofweek'], 
                   right_on=['op_unique_carrier', 'branded_share', 'fl_dayofweek'],
-                  suffixes=('_', '_carrier')).merge(tmp6,
+                  suffixes=('_', '_carrier')).merge(features_6,
                   left_on=['dest_airport_id', 'fl_month'], 
                   right_on=['dest_airport_id', 'fl_month'],
-                  suffixes=('_', '_dest')).merge(tmp7,
+                  suffixes=('_', '_dest')).merge(features_7,
                   left_on=['origin_airport_id', 'fl_month'], 
                   right_on=['origin_airport_id', 'fl_month'],
-                  suffixes=('_', '_origin')).merge(tmp8,                                
+                  suffixes=('_', '_origin')).merge(features_8,                                
                   left_on=['holidate', 'origin_airport_id', 'dest_airport_id'], 
                   right_on=['holidate', 'origin_airport_id', 'dest_airport_id'],
-                  suffixes=('_', '_holidate')).merge(tmp9,                               
+                  suffixes=('_', '_holidate')).merge(features_9,                               
                   left_on=['origin_airport_id', 'dest_airport_id', 'fl_dayofweek'], 
                   right_on=['origin_airport_id', 'dest_airport_id', 'fl_dayofweek'],
                   suffixes=('_', '_route'))
@@ -120,7 +124,11 @@ def preparing_test_dataset(df):
     ######################################################
     # getting the list of US national holidays
     # run this if 'holidays' is not available. check the file location first
-    us_holidays_df = pd.read_csv('extra/us_holidays.csv')
+    try:
+        us_holidays_df = pd.read_csv('../extra/us_holidays.csv')
+    except:
+        filname = input('File location for us_holidays_df')
+        us_holidays_df = pd.read_csv(filname)
 
     from datetime import timedelta
     holidays = []
@@ -162,25 +170,25 @@ def preparing_test_dataset(df):
     # merging the testing dataset with the features tables of aggregate values
     # thereby converting categorical and ordinal columns to continuous values
     tmp = df
-    df = tmp.merge(tmp2, 
+    df = tmp.merge(features_features_2, 
                   left_on=['tail_num'], 
-                  right_on=['tail_num'], how='left').merge(tmp3,
+                  right_on=['tail_num'], how='left').merge(features_features_3,
                   left_on=['tail_num','dep_hour'],
-                  right_on=['tail_num','dep_hour']).merge(tmp4,
+                  right_on=['tail_num','dep_hour']).merge(features_features_4,
                   left_on=['tail_num','arr_hour'],
-                  right_on=['tail_num','arr_hour']).merge(tmp5,
+                  right_on=['tail_num','arr_hour']).merge(features_features_5,
                   left_on=['op_unique_carrier', 'branded_share', 'fl_dayofweek'], 
                   right_on=['op_unique_carrier', 'branded_share', 'fl_dayofweek'],
-                  suffixes=('_', '_carrier')).merge(tmp6,
+                  suffixes=('_', '_carrier')).merge(features_features_6,
                   left_on=['dest_airport_id', 'fl_month'], 
                   right_on=['dest_airport_id', 'fl_month'],
-                  suffixes=('_', '_dest')).merge(tmp7,
+                  suffixes=('_', '_dest')).merge(features_features_7,
                   left_on=['origin_airport_id', 'fl_month'], 
                   right_on=['origin_airport_id', 'fl_month'],
-                  suffixes=('_', '_origin')).merge(tmp8,                                
+                  suffixes=('_', '_origin')).merge(features_features_8,                                
                   left_on=['holidate', 'origin_airport_id', 'dest_airport_id'], 
                   right_on=['holidate', 'origin_airport_id', 'dest_airport_id'],
-                  suffixes=('_', '_holidate')).merge(tmp9,                               
+                  suffixes=('_', '_holidate')).merge(features_features_9,                               
                   left_on=['origin_airport_id', 'dest_airport_id', 'fl_dayofweek'], 
                   right_on=['origin_airport_id', 'dest_airport_id', 'fl_dayofweek'],
                   suffixes=('_', '_route'))
@@ -189,8 +197,8 @@ def preparing_test_dataset(df):
                        'tail_num',
                        'origin_airport_id',
                        'dest_airport_id',
-                                       'fl_month',
-                                      'fl_dayofweek'],
+                       'fl_month',
+                       'fl_dayofweek'],
               inplace=True)
 
 

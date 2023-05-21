@@ -22,13 +22,13 @@ def feature_generation (df_full, save_features=0):
     # save to file
     if save_features:
         tmp2.to_csv('../data/features_tailnum_delay_taxi_multiclass_params.csv')
-        tmp3.to_csv('../data/tailnum_hourly_delays_multiclass_params_dep.csv')
-        tmp4.to_csv('../data/tailnum_hourly_delays_multiclass_params_arr.csv')
-        tmp5.to_csv('../data/carrier_branded_dayofweek_delay_multiclass_params.csv')
-        tmp6.to_csv('../data/dest_monthly_multiclass_params.csv')
-        tmp7.to_csv('../data/origin_monthly_multiclass_params.csv')
-        tmp8.to_csv('../data/holiday_multiclass_params.csv')
-        tmp9.to_csv('../data/origin_dest_route_dayofweek_multiclass_params.csv')
+        tmp3.to_csv('../data/features_tailnum_hourly_delays_multiclass_params_dep.csv')
+        tmp4.to_csv('../data/features_tailnum_hourly_delays_multiclass_params_arr.csv')
+        tmp5.to_csv('../data/features_carrier_branded_dayofweek_delay_multiclass_params.csv')
+        tmp6.to_csv('../data/features_dest_monthly_multiclass_params.csv')
+        tmp7.to_csv('../data/features_origin_monthly_multiclass_params.csv')
+        tmp8.to_csv('../data/features_holiday_multiclass_params.csv')
+        tmp9.to_csv('../data/features_origin_dest_route_dayofweek_multiclass_params.csv')
         return tmp
     else:       
         return tmp, tmp2, tmp3, tmp4, tmp5, tmp6, tmp7, tmp8, tmp9

@@ -468,7 +468,7 @@ CNY,"Moab, UT",734.0,7960.0
 CO1,"Monte Vista, CO",13.2,80.2
 CO6,"Buena, CO",0.6,2.6
 COD,"Cody, WY",1284.4,38783.8
-COE,"Coeur d'Alene, ID",59.2,35.0
+COE,"Coeur d''Alene, ID",59.2,35.0
 COF,"Cocoa Beach, FL",1.6,0.0
 COM,"Coleman, TX",0.8,0.0
 CON,"Concord, NH",5.0,16.6
@@ -1142,7 +1142,7 @@ KRK,"Krakow, Poland",34.6,7959.6
 KS3,"Hiawatha, KS",0.2,0.6
 KSA,"Kosrae, Federated States of Micronesia",1.4,20.6
 KSF,"Kassel, Germany",0.2,1.4
-KSM,"St. Mary's, AK",5325.0,12638.4
+KSM,"St. Mary''s, AK",5325.0,12638.4
 KTB,"Thorne Bay, AK",1517.8,2378.8
 KTN,"Ketchikan, AK",5861.0,220215.0
 KTS,"Brevig Mission, AK",1286.2,3738.0
@@ -1438,7 +1438,7 @@ MVL,"Morrisville, VT",41.6,173.8
 MVM,"Kayenta, AZ",8.2,86.2
 MVN,"Mount Vernon, IL",2.0,0.0
 MVW,"Burlington/Mount Vernon, WA",499.0,1.8
-MVY,"Martha's Vineyard, MA",5278.0,51437.0
+MVY,"Martha''s Vineyard, MA",5278.0,51437.0
 MWA,"Marion/Herrin, IL",1839.8,10633.8
 MWH,"Moses Lake, WA",729.2,86.6
 MWL,"Mineral Wells, TX",0.6,2.8
@@ -1517,7 +1517,7 @@ NKX,"San Diego, CA",5.0,155.0
 NLC,"Lemoore, CA",0.2,1.4
 NLG,"Nelson Lagoon, AK",220.8,435.4
 NM2,"Truth Or Consequences, NM",3.6,70.2
-NMC,"Norman's Cay, The Bahamas",0.2,1.6
+NMC,"Norman''s Cay, The Bahamas",0.2,1.6
 NME,"Nightmute, AK",1788.2,4412.4
 NNK,"Naknek, AK",25.6,25.6
 NNL,"Nondalton, AK",496.4,573.2
@@ -2316,7 +2316,7 @@ WI5,"Moroe, WI",0.2,0.4
 WI6,"Waupaca, WI",0.2,0.0
 WJF,"Lancaster, CA",0.2,2.0
 WKK,"Aleknagik, AK",50.6,3.4
-WKR,"Walker's Cay, The Bahamas",1.8,3.4
+WKR,"Walker''s Cay, The Bahamas",1.8,3.4
 WKV,"Philadelphia, PA",9.0,22.4
 WLG,"Wellington, New Zealand",0.2,1.8
 WLK,"Selawik, AK",1838.0,6002.8
@@ -2353,7 +2353,7 @@ WY1,"Pinedale, WY",0.2,0.0
 WYB,"Yes Bay, AK",0.2,0.2
 WYS,"West Yellowstone, MT",244.6,8385.2
 XCR,"Chalons-En-Champagne, France",3.4,0.0
-XIY,"Xi'an, China",37.2,6140.2
+XIY,"Xi''an, China",37.2,6140.2
 XMN,"Xiamen, China",80.0,17200.0
 XMR,"Marmande, France",0.2,0.0
 XNA,"Fayetteville, AR",13883.6,732100.2
@@ -2484,7 +2484,7 @@ YYG,"Charlottetown, Canada",10.6,820.8
 YYJ,"Victoria, Canada",2773.6,131840.6
 YYQ,"Churchill, Canada",0.6,2.0
 YYR,"Goose Bay, Canada",28.0,2577.2
-YYT,"St. John's, Canada",165.8,15101.2
+YYT,"St. John''s, Canada",165.8,15101.2
 YYZ,"Toronto, Canada",82262.0,6285481.0
 YZF,"Yellowknife, Canada",3.4,164.8
 YZT,"Port Hardy, Canada",1.6,6.0

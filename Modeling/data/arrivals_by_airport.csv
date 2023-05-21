@@ -65,7 +65,7 @@ AAO,"Anaco, Venezuela",0.2,0.4
 AAR,"Aarhus, Denmark",0.2,2.0
 ABE,"Allentown/Bethlehem/Easton, PA",7390.0,357695.4
 ABI,"Abilene, TX",2985.0,88117.6
-ABJ,"Abidjan, Cote d'Ivoire",0.2,42.4
+ABJ,"Abidjan, Cote d''Ivoire",0.2,42.4
 ABL,"Ambler, AK",1361.8,4365.0
 ABQ,"Albuquerque, NM",30783.6,2542540.6
 ABR,"Aberdeen, SD",1060.2,27656.2
@@ -478,7 +478,7 @@ CO1,"Monte Vista, CO",13.0,69.6
 CO3,"Marina, CA",0.4,0.0
 CO6,"Buena, CO",0.2,0.0
 COD,"Cody, WY",1267.4,37910.4
-COE,"Coeur d'Alene, ID",58.2,35.8
+COE,"Coeur d''Alene, ID",58.2,35.8
 COF,"Cocoa Beach, FL",1.8,0.0
 COM,"Coleman, TX",1.0,0.6
 CON,"Concord, NH",4.4,13.4
@@ -1175,7 +1175,7 @@ KR1,"Jungwon, South Korea",0.2,18.2
 KRK,"Krakow, Poland",35.6,7602.2
 KS3,"Hiawatha, KS",0.4,1.2
 KSA,"Kosrae, Federated States of Micronesia",0.4,15.2
-KSM,"St. Mary's, AK",5237.4,13418.2
+KSM,"St. Mary''s, AK",5237.4,13418.2
 KTB,"Thorne Bay, AK",1517.8,2538.8
 KTN,"Ketchikan, AK",5777.4,220574.8
 KTS,"Brevig Mission, AK",1292.2,3615.2
@@ -1490,7 +1490,7 @@ MVL,"Morrisville, VT",43.4,200.4
 MVM,"Kayenta, AZ",7.0,61.6
 MVN,"Mount Vernon, IL",1.8,0.4
 MVW,"Burlington/Mount Vernon, WA",235.0,2.2
-MVY,"Martha's Vineyard, MA",5381.4,51144.0
+MVY,"Martha''s Vineyard, MA",5381.4,51144.0
 MWA,"Marion/Herrin, IL",1839.2,9780.0
 MWH,"Moses Lake, WA",245.8,86.4
 MWL,"Mineral Wells, TX",1.0,3.2
@@ -2317,7 +2317,7 @@ VA8,"Richmond, VA",1.0,4.8
 VA9,"Norfolk, VA",0.4,1.4
 VAD,"Valdosta, GA",1.6,25.0
 VAK,"Chevak, AK",2501.6,8556.6
-VAV,"Vava'u, Tonga",0.2,1.0
+VAV,"Vava''u, Tonga",0.2,1.0
 VBG,"Lompoc, CA",1.2,15.0
 VCE,"Venice, Italy",734.2,145704.6
 VCP,"Sao Paulo, Brazil",2013.6,207755.0
@@ -2399,7 +2399,7 @@ WI5,"Moroe, WI",0.2,0.4
 WI6,"Waupaca, WI",0.2,0.0
 WJF,"Lancaster, CA",0.4,2.8
 WKK,"Aleknagik, AK",50.6,9.6
-WKR,"Walker's Cay, The Bahamas",1.8,4.4
+WKR,"Walker''s Cay, The Bahamas",1.8,4.4
 WKV,"Philadelphia, PA",8.4,18.6
 WLG,"Wellington, New Zealand",0.2,0.6
 WLK,"Selawik, AK",1845.6,6036.4
@@ -2437,7 +2437,7 @@ WY1,"Pinedale, WY",0.2,1.0
 WYB,"Yes Bay, AK",0.2,0.0
 WYS,"West Yellowstone, MT",244.6,8351.6
 XCR,"Chalons-En-Champagne, France",20.6,0.0
-XIY,"Xi'an, China",37.6,6387.6
+XIY,"Xi''an, China",37.6,6387.6
 XMN,"Xiamen, China",79.4,17865.0
 XMR,"Marmande, France",0.6,0.0
 XNA,"Fayetteville, AR",13915.6,731563.4
@@ -2537,7 +2537,7 @@ YYF,"Penticton, Canada",28.2,1.6
 YYG,"Charlottetown, Canada",10.4,762.8
 YYJ,"Victoria, Canada",2848.0,137986.8
 YYR,"Goose Bay, Canada",19.4,891.4
-YYT,"St. John's, Canada",165.2,15689.6
+YYT,"St. John''s, Canada",165.2,15689.6
 YYZ,"Toronto, Canada",82325.6,6295763.2
 YZF,"Yellowknife, Canada",3.8,76.8
 YZT,"Port Hardy, Canada",1.6,3.8
